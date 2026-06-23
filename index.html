@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="InvestOver — AI-powered investing with psychology-aware agents, live market analysis, and portfolio intelligence." />
+  <title>InvestOver — Invest Smarter. Not Harder.</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+  <div class="ambient-bg" aria-hidden="true">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+    <div class="noise-overlay"></div>
+  </div>
+
+  <nav class="nav">
+    <a href="#hero" class="nav-logo">Invest<span>Over</span></a>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#market">Market</a>
+      <a href="#features">Features</a>
+      <a href="#early-access" class="nav-cta">Early Access</a>
+    </div>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="hero">
+      <div class="hero-content">
+        <div class="hero-badge">AI-Powered Investing Platform</div>
+        <h1 class="hero-title">Invest smarter.<br /><span class="gradient-text">Not harder.</span></h1>
+        <p class="hero-subtitle">
+          AI agents that understand markets <em>and</em> your psychology — portfolio tracking,
+          company intelligence, and actionable buy/sell guidance in one platform.
+        </p>
+        <div class="hero-actions">
+          <a href="#early-access" class="btn btn-primary">Get Early Access</a>
+          <a href="#market" class="btn btn-secondary">See live market pulse</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div id="hero-canvas" class="hero-canvas"></div>
+        <div class="hero-3d-space">
+          <div class="float-chip chip-1"><span>+12.4%</span><small>Portfolio</small></div>
+          <div class="float-chip chip-2"><span>AI Agent</span><small>Active</small></div>
+          <div class="float-chip chip-3"><span>Bullish</span><small>Sentiment</small></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT / TIMELINE -->
+    <section class="timeline-section" id="about">
+      <div class="timeline-pin">
+        <div class="timeline-header">
+          <span class="section-badge">About Us</span>
+          <h2 class="section-title">Built for traders who think ahead</h2>
+        </div>
+        <div class="timeline-track">
+          <div class="timeline-line">
+            <div class="timeline-line-fill"></div>
+          </div>
+          <div class="timeline-node node-left" data-step="1">
+            <div class="node-dot"></div>
+            <div class="node-card glass">
+              <span class="node-label">01 — Our Goal</span>
+              <h3>Democratize institutional-grade intelligence</h3>
+              <p>Every trader deserves the same data edge that hedge funds use — without the complexity or the cost barrier.</p>
+            </div>
+          </div>
+          <div class="timeline-node node-right" data-step="2">
+            <div class="node-dot"></div>
+            <div class="node-card glass">
+              <span class="node-label">02 — Our Mission</span>
+              <h3>AI + psychology, never emotion alone</h3>
+              <p>We combine AI agents, behavioral psychology, and real-time market data so you never trade on panic or FOMO again.</p>
+            </div>
+          </div>
+          <div class="timeline-node node-left" data-step="3">
+            <div class="node-dot"></div>
+            <div class="node-card glass">
+              <span class="node-label">03 — Our Vision</span>
+              <h3>Your personal AI investing team</h3>
+              <p>A world where every investor has a strategist, psychologist, and analyst working together — tailored to their profile.</p>
+            </div>
+          </div>
+          <div class="timeline-node node-right" data-step="4">
+            <div class="node-dot"></div>
+            <div class="node-card glass">
+              <span class="node-label">04 — Why Now</span>
+              <h3>Markets move faster than humans</h3>
+              <p>Retail traders need an edge. AI-driven analysis plus psychological guardrails is how the next generation wins.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="timeline-spacer"></div>
+    </section>
+
+    <!-- LIVE MARKET -->
+    <section class="market-section" id="market">
+      <div class="market-container">
+        <div class="market-header">
+          <span class="section-badge">Live Analysis</span>
+          <h2 class="section-title">Today's market pulse</h2>
+          <p class="section-subtitle">Real-time sentiment powered by major indices and market news</p>
+        </div>
+        <div class="market-grid" id="market-panel">
+          <div class="market-sentiment glass">
+            <div class="sentiment-gauge">
+              <svg viewBox="0 0 200 120" class="gauge-svg">
+                <path class="gauge-bg" d="M 20 100 A 80 80 0 0 1 180 100" fill="none" stroke-width="12" />
+                <path class="gauge-fill" id="gauge-fill" d="M 20 100 A 80 80 0 0 1 180 100" fill="none" stroke-width="12" />
+              </svg>
+              <div class="gauge-center">
+                <div class="sentiment-icon" id="sentiment-icon">
+                  <i data-lucide="trending-up"></i>
+                </div>
+                <div class="sentiment-label" id="sentiment-label">Loading...</div>
+                <div class="sentiment-confidence" id="sentiment-confidence">—</div>
+              </div>
+            </div>
+            <div class="market-updated" id="market-updated">Updating...</div>
+          </div>
+          <div class="market-stats">
+            <div class="stat-card glass" id="stat-spy">
+              <span class="stat-name">S&P 500 (SPY)</span>
+              <span class="stat-value">—</span>
+              <span class="stat-change">—</span>
+            </div>
+            <div class="stat-card glass" id="stat-qqq">
+              <span class="stat-name">NASDAQ (QQQ)</span>
+              <span class="stat-value">—</span>
+              <span class="stat-change">—</span>
+            </div>
+            <div class="stat-card glass" id="stat-vix">
+              <span class="stat-name">Volatility (VIX)</span>
+              <span class="stat-value">—</span>
+              <span class="stat-change">—</span>
+            </div>
+          </div>
+          <div class="market-reasons glass">
+            <h3><i data-lucide="lightbulb"></i> Why this sentiment?</h3>
+            <ul id="reasons-list">
+              <li class="skeleton-line"></li>
+              <li class="skeleton-line"></li>
+              <li class="skeleton-line"></li>
+            </ul>
+            <div class="market-error hidden" id="market-error">
+              <p>Unable to load live data. Add your Finnhub API key to <code>.env</code></p>
+              <button class="btn btn-secondary btn-sm" id="market-retry">Retry</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES HORIZONTAL -->
+    <section class="features-section" id="features">
+      <div class="features-header">
+        <span class="section-badge">Platform Features</span>
+        <h2 class="section-title">Everything your edge needs</h2>
+        <div class="features-progress">
+          <span id="feature-counter">01 / 07</span>
+          <div class="progress-dots" id="progress-dots"></div>
+        </div>
+      </div>
+      <div class="features-pin">
+        <div class="features-track" id="features-track">
+          <article class="feature-card glass" data-tilt>
+            <div class="feature-icon"><i data-lucide="brain"></i></div>
+            <h3>AI Psychology Coach</h3>
+            <p>Personalized behavioral analysis that catches panic selling, FOMO, and revenge trading before they cost you.</p>
+            <div class="feature-mockup chat-mockup">
+              <div class="chat-bubble bot">Panic selling detected — here's why holding may outperform exiting now.</div>
+              <div class="chat-bubble user">Should I sell my tech positions?</div>
+            </div>
+          </article>
+          <article class="feature-card glass" data-tilt>
+            <div class="feature-icon"><i data-lucide="pie-chart"></i></div>
+            <h3>Portfolio Tracker</h3>
+            <p>Track holdings, performance, and dividend announcements — never miss a payout date again.</p>
+            <div class="feature-mockup portfolio-mockup">
+              <div class="mini-stat"><span>AAPL</span><span class="up">+3.2%</span></div>
+              <div class="mini-stat"><span>MSFT</span><span class="up">+1.8%</span></div>
+              <div class="dividend-alert"><i data-lucide="calendar"></i> Dividend: NVDA — Jun 28</div>
+            </div>
+          </article>
+          <article class="feature-card glass" data-tilt>
+            <div class="feature-icon"><i data-lucide="building-2"></i></div>
+            <h3>Company Intelligence</h3>
+            <p>Color-coded company data and linked executive profiles for faster due diligence.</p>
+            <div class="feature-mockup company-mockup">
+              <div class="company-chip green">AAPL</div>
+              <div class="company-chip blue">MSFT</div>
+              <div class="company-chip amber">TSLA</div>
+              <div class="exec-chip">CEO · Tim Cook ↗</div>
+            </div>
+          </article>
+          <article class="feature-card glass" data-tilt>
+            <div class="feature-icon"><i data-lucide="line-chart"></i></div>
+            <h3>Market Analysis</h3>
+            <p>Bullish or bearish outlooks with clear reasoning — know the macro story before you trade.</p>
+            <div class="feature-mockup chart-mockup">
+              <div class="mini-chart">
+                <div class="bar" style="height:40%"></div>
+                <div class="bar" style="height:55%"></div>
+                <div class="bar" style="height:45%"></div>
+                <div class="bar" style="height:70%"></div>
+                <div class="bar" style="height:85%"></div>
+              </div>
+              <span class="bull-tag">Bullish</span>
+            </div>
+          </article>
+          <article class="feature-card glass" data-tilt>
+            <div class="feature-icon"><i data-lucide="target"></i></div>
+            <h3>What · When · Where</h3>
+            <p>Actionable recommendations on what to buy, when to enter, and where to execute.</p>
+            <div class="feature-mockup buy-mockup">
+              <div class="buy-step"><span>What</span><strong>NVDA</strong></div>
+              <div class="buy-step"><span>When</span><strong>On pullback</strong></div>
+              <div class="buy-step"><span>Where</span><strong>NASDAQ</strong></div>
+            </div>
+          </article>
+          <article class="feature-card glass" data-tilt>
+            <div class="feature-icon"><i data-lucide="filter"></i></div>
+            <h3>Interest Rate Filter</h3>
+            <p>Filter companies by borrowing costs and rate sensitivity to find opportunities others miss.</p>
+            <div class="feature-mockup filter-mockup">
+              <input type="range" min="0" max="100" value="35" disabled />
+              <div class="filter-labels"><span>Low</span><span>High</span></div>
+              <div class="filter-result">12 companies match</div>
+            </div>
+          </article>
+          <article class="feature-card glass" data-tilt>
+            <div class="feature-icon"><i data-lucide="bot"></i></div>
+            <h3>Multi-Agent Strategies</h3>
+            <p>Three AI agents — Conservative, Momentum, and Macro — each with distinct market strategies.</p>
+            <div class="feature-mockup agents-mockup">
+              <div class="agent-card"><span class="agent-avatar a1">C</span><span>Conservative</span></div>
+              <div class="agent-card"><span class="agent-avatar a2">M</span><span>Momentum</span></div>
+              <div class="agent-card"><span class="agent-avatar a3">X</span><span>Macro</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+      <div class="features-spacer"></div>
+    </section>
+
+    <!-- EARLY ACCESS -->
+    <section class="cta-section" id="early-access">
+      <div class="cta-card glass">
+        <div class="cta-glow-border"></div>
+        <div class="cta-content">
+          <span class="section-badge">Early Access</span>
+          <h2 class="section-title">Be first. Trade smarter.</h2>
+          <p class="section-subtitle">Join the waitlist for early access to InvestOver's AI investing platform.</p>
+          <form class="cta-form" id="cta-form" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" placeholder="Jane Trader" required />
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="you@email.com" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="experience">Experience Level</label>
+              <select id="experience" name="experience" required>
+                <option value="">Select your level</option>
+                <option value="beginner">Beginner</option>
+                <option value="active">Active Trader</option>
+                <option value="professional">Professional</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Which features excite you most?</label>
+              <div class="chip-group" id="feature-chips">
+                <button type="button" class="chip" data-value="psychology">Psychology Coach</button>
+                <button type="button" class="chip" data-value="portfolio">Portfolio Tracker</button>
+                <button type="button" class="chip" data-value="agents">AI Agents</button>
+                <button type="button" class="chip" data-value="market">Market Analysis</button>
+                <button type="button" class="chip" data-value="companies">Company Intel</button>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full">Join the Waitlist</button>
+            <p class="form-fine-print">No spam. Early access invites roll out in waves.</p>
+          </form>
+          <div class="cta-success hidden" id="cta-success">
+            <div class="success-check"><i data-lucide="check-circle"></i></div>
+            <h3>You're on the list!</h3>
+            <p>We'll reach out when your early access spot opens up.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-brand">Invest<span>Over</span></div>
+    <div class="footer-links">
+      <a href="#">Twitter</a>
+      <a href="#">LinkedIn</a>
+      <a href="#">Discord</a>
+    </div>
+    <p class="footer-disclaimer">Not financial advice. For informational purposes only. Past performance does not guarantee future results.</p>
+    <p class="footer-copy">&copy; 2026 InvestOver. All rights reserved.</p>
+  </footer>
+
+  <script type="module" src="/src/js/main.js"></script>
+</body>
+</html>
